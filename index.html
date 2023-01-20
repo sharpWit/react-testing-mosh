@@ -20,19 +20,22 @@
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      class HelloWorld {
-        hello() {
-          return <div>Hello World!</div>;
-        }
+      function Greeting(props) {
+        return <div>greeting {props.name}</div>;
       }
-      const helloInstance = new HelloWorld();
-      const id = "greeting";
-      const element = (
-        <div className="w3-container w3-blue" id={id}>
-          Hello World!
-        </div>
-      );
-      ReactDOM.render(helloInstance.hello(), document.getElementById("root"));
+      function Hello(props) {
+        return (
+          <div>
+            <div>
+              Hello {props.name} {props.last}
+            </div>
+            <Greeting name={props.name} />
+          </div>
+        );
+      }
+      const element = <Hello name="Saeed" last="Khosravi"></Hello>;
+
+      ReactDOM.render(element, document.getElementById("root"));
     </script>
   </body>
 </html>
