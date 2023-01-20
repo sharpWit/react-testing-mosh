@@ -230,37 +230,44 @@
       })();
     </script>
     <script type="text/babel">
-      function Username() {
-        return (
-          <div className="form-group">
-            <label htmlFor="username">نام کاربری</label>
-            <input type="text" className="form-control" id="username" />
-          </div>
-        );
+      class UserName extends React.Component {
+        render() {
+          return (
+            <div className="form-group">
+              <label htmlFor="username">نام کاربری</label>
+              <input type="text" className="form-control" id="username" />
+            </div>
+          );
+        }
       }
-      function Password() {
-        return (
-          <div className="form-group">
-            <label htmlFor="password">کلمه عبور</label>
-            <input type="text" className="form-control" id="password" />
-          </div>
-        );
+
+      class Password extends React.Component {
+        render() {
+          return (
+            <div className="form-group">
+              <label htmlFor="password">کلمه عبور</label>
+              <input type="text" className="form-control" id="password" />
+            </div>
+          );
+        }
       }
-      function Button() {
+      function Submit() {
         return (
           <button className="btn btn-primary" type="submit">
             تاُئید
           </button>
         );
       }
-      function SignInForm() {
-        return (
-          <form style={{ fontFamily: "sahel, sans-serif" }}>
-            <Username />
-            <Password />
-            <Button />
-          </form>
-        );
+      class SignInForm extends React.Component {
+        render() {
+          return (
+            <form style={{ fontFamily: "sahel, sans-serif" }}>
+              <UserName />
+              <Password />
+              <Submit />
+            </form>
+          );
+        }
       }
 
       ReactDOM.render(<SignInForm />, document.getElementById("root"));
