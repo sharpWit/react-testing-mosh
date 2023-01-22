@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import SideBar from "./SideBar";
+import Boxes from "./Boxes";
 
 export default class Main extends Component {
   state = {
@@ -10,47 +12,33 @@ export default class Main extends Component {
     ],
     activeBoxes: [1, 2, 3, 4],
   };
-  handleToggleBtn(id) {
+
+  handelToggleBtn = (id) => {
     const activeBoxes = [...this.state.activeBoxes];
+
     if (activeBoxes.includes(id)) {
       activeBoxes.splice(activeBoxes.indexOf(id), 1);
     } else {
       activeBoxes.push(id);
     }
+
     this.setState((state) => {
       return {
         ...state,
         activeBoxes,
       };
     });
-  }
+  };
+
   render() {
-    const toggle = this.state.boxes.map((box) => {
-      return (
-        <div className="toggle">
-          <span>{box.title}</span>
-          <label className="toggle-control">
-            <input
-              type="checkbox"
-              checked={this.state.activeBoxes.includes(box.id)}
-            />
-            <span
-              className="control"
-              onClick={(e) => this.handleToggleBtn(box.id)}
-            ></span>
-          </label>
-        </div>
-      );
-    });
-    const boxes = this.state.boxes.map((box) => {
-      if (this.state.activeBoxes.includes(box.id)) {
-        return <div className="box">{box.title}</div>;
-      }
-    });
     return (
       <>
-        <aside>{toggle}</aside>
-        <div className="box-wrapper">{boxes}</div>
+        <SideBar
+          handeleToggle={this.handelToggleBtn}
+          boxes={this.state.boxes}
+          activeBoxes={this.state.activeBoxes}
+        />
+        <Boxes boxes={this.state.boxes} activeBoxes={this.state.activeBoxes} />
       </>
     );
   }
