@@ -13,7 +13,7 @@ export default class CleanChat extends Component {
         {
           type: "recive",
           message: "Good morning, How are you?",
-          time: "11:39:57 am",  
+          time: "11:39:57 am",
         },
         {
           type: "sent",
