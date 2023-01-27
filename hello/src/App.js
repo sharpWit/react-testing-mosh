@@ -1,17 +1,15 @@
 // import "./Style.css";
-import "./App.css"
-import StickyNote from "./Components/StickyNote";
-import Clock from "./Components/Clock";
-import Click from "./Components/Click";
-// import Main from "./Components/Main";
-// import Conditional from "./Components/Conditional";
+// import "./App.css"
+import TodoList from "./Components/TodoList";
 import CleanChat from "./Components/CleanChat";
-// import "./Main.css";
-import "./Chat.css";
+// import "./Chat.css";
+// import "./Todo.css";
+import "./IpInfo.css";
+import IpInfo from "./Components/IpInfo";
 function App() {
   return (
     <>
-      <CleanChat />
+      <IpInfo />
     </>
   );
 }
