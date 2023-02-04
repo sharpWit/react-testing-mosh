@@ -1,15 +1,20 @@
-import Toggle from "./Toggle";
+import React from "react";
+import Link from "./Link";
 
-export default function SideBar(props) {
-  const toggle = props.boxes.map((box) => {
-    return (
-      <Toggle
-        handeleToggle={props.handeleToggle}
-        activeBoxes={props.activeBoxes}
-        box={box}
-      />
-    );
-  });
-
-  return <aside>{toggle}</aside>;
+export default function Sidebar(props) {
+  const Links = props.posts
+    ? props.posts.map((post, index) => (
+        <Link
+          title={post.title}
+          key={post.id}
+          index={index}
+          handleClick={props.handleChangeCurrentPost}
+        />
+      ))
+    : null;
+  return (
+    <aside>
+      <ul>{Links}</ul>
+    </aside>
+  );
 }
