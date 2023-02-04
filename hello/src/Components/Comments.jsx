@@ -1,10 +1,14 @@
 import React from "react";
 import Comment from "./Comment";
 
-export default function Comments() {
+export default function Comments(props) {
+  const comments = props.data
+    ? props.data.map((comment) => <Comment data={comment.body} />)
+    : null;
   return (
     <div className="comments">
-      <Comment />
+      <p>Comments:</p>
+      {comments}
     </div>
   );
 }
