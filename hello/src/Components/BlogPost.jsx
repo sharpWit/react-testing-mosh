@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
+import getPosts from "../Services/getPosts";
 
 class BlogPost extends Component {
   constructor(props) {
@@ -11,15 +12,11 @@ class BlogPost extends Component {
     };
     this.handleChangeCurrentPost = this.handleChangeCurrentPost.bind(this);
   }
-  async getPosts() {
-    const posts = await fetch("http://localhost:3001/posts");
-    return await posts.json();
-  }
+
   componentDidMount() {
-    this.getPosts().then((posts) => this.setState({ posts, currentPost: 0 }));
+    getPosts().then((posts) => this.setState({ posts, currentPost: 0 }));
   }
   handleChangeCurrentPost(index) {
-    console.log(index);
     this.setState({ currentPost: index });
   }
   render() {

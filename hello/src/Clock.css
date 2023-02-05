@@ -1,0 +1,19 @@
+body {
+  background-color: #007bec;
+  color: #ffffff;
+  font-size: 3rem;
+  padding: 15px;
+}
+
+div {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 30px;
+  font-size: 2rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

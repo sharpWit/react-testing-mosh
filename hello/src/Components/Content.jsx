@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Post from "./Post";
 import Comments from "./Comments";
+import getComments from "../Services/getComments";
 
 class Content extends Component {
   constructor(props) {
@@ -9,23 +10,18 @@ class Content extends Component {
       comments: null,
     };
   }
-  async getComments() {
-    const comments = await fetch(
-      `http://localhost:3001/comments?post-id=${this.props.post.id}`
-    );
-    return await comments.json();
-  }
-  setComment() {
-    this.getComments().then((comments) => this.setState({ comments }));
+
+  setComments(id) {
+    getComments(id).then((comments) => this.setState({ comments }));
   }
   componentDidMount() {
     if (this.props.post) {
-      this.setComment();
+      this.setComments(this.props.post.id);
     }
   }
   componentDidUpdate(prevProps) {
     if (prevProps.post.id !== this.props.post.id) {
-      this.setComment();
+      this.setComments(this.props.post.id);
     }
   }
   render() {

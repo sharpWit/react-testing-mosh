@@ -3,7 +3,7 @@ import Comment from "./Comment";
 
 export default function Comments(props) {
   const comments = props.data
-    ? props.data.map((comment) => <Comment data={comment.body} />)
+    ? props.data.map((comment) => <Comment comment={comment.body} />)
     : null;
   return (
     <div className="comments">

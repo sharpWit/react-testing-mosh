@@ -1,24 +1,31 @@
 import React, { Component } from "react";
+import Time from "./Time";
 class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
+      showTime: true,
     };
-    setInterval(this.tick.bind(this), 1000);
+    this.toggleShowTime = this.toggleShowTime.bind(this);
+  }
+  toggleShowTime() {
+    this.setState((state) => {
+      return {
+        showTime: !state.showTime,
+      };
+    });
   }
   render() {
+    const showTime = this.state.showTime;
     return (
       <div>
-        <p>Hello Users!</p>
-        <p>It is {this.state.date.toLocaleTimeString()}</p>
+        {showTime && <Time />}
+        <button onClick={this.toggleShowTime}>
+          {showTime ? "Hide time" : "Show time"}
+        </button>
       </div>
     );
   }
-  tick() {
-    this.setState({
-      date: new Date(),
-    });
-  }
 }
+
 export default Clock;
