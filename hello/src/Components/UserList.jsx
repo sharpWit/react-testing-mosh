@@ -26,7 +26,7 @@ class UserList extends Component {
           selectedIndex={selectedIndex}
           users={users}
         />
-        <User userId={users[selectedIndex]} />
+        <User key={users[selectedIndex]} userId={users[selectedIndex]} />
       </>
     );
   }

@@ -7,14 +7,15 @@ class User extends Component {
       user: null,
     };
   }
-  async getUserData(userId) {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${userId}`
-    );
-    return await (await response).json();
-    
-  }
-  
+  // static getDerivedStateFromProps(nexProps, prevState) {
+  //   if (nexProps.userId !== prevState.prevPropsUserId) {
+  //     return {
+  //       user: null,
+  //       prevPropsUserId: nexProps.userId,
+  //     };
+  //   }
+  //   return null;
+  // }
 
   componentDidMount() {
     this.getUserData(this.props.userId).then((user) =>
@@ -23,6 +24,25 @@ class User extends Component {
       })
     );
   }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.userId !== this.props.userId) {
+  //     this.getUserData(this.props.userId).then((user) =>
+  //       this.setState({
+  //         user,
+  //       })
+  //     );
+  //   }
+  // }
+  componentWillUnmount() {
+    console.log("unmount");
+  }
+  async getUserData(userId) {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    return await (await response).json();
+  }
+
   render() {
     const { user } = this.state;
     return (
