@@ -1,11 +1,10 @@
-import "./UserList.css";
-import UserList from "./Components/UserList";
-const users = [1, 2, 3, 4];
+import "./App.css";
+import Root from "./Components/Root";
 
 function App() {
   return (
     <>
-      <UserList users={users} />
+      <Root />
     </>
   );
 }
