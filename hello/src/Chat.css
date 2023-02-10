@@ -3,6 +3,25 @@ body {
   margin-top: 10px;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #62a8ea #dfe9ef;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #dfe9ef;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #62a8ea;
+  border-radius: 20px;
+  border: 3px solid #dfe9ef;
+}
+
 .chat-box {
   height: 100%;
   width: 100%;
@@ -12,6 +31,8 @@ body {
 
 .chats {
   padding: 30px 15px;
+  height: 500px;
+  overflow-y: auto;
 }
 
 .chat-avatar {
@@ -112,6 +133,7 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+
 .avatar img {
   width: 100%;
   max-width: 100%;
@@ -119,9 +141,11 @@ body {
   border: 0 none;
   border-radius: 1000px;
 }
+
 .chat-avatar .avatar {
   width: 30px;
 }
+
 .avatar {
   position: relative;
   display: inline-block;
@@ -129,4 +153,34 @@ body {
   white-space: nowrap;
   border-radius: 1000px;
   vertical-align: bottom;
+}
+
+form {
+    width: 100%;
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-control {
+    flex: 1;
+}
+
+.input-group-btn {
+    flex: 0 0 auto;
+    margin-left: 8px;
+}
+
+.btn {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+    color: #ffffff;
 }

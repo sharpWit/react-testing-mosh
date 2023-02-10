@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 export default class FooterChat extends Component {
   constructor(props) {
@@ -9,17 +9,20 @@ export default class FooterChat extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     this.setState({
       input: event.target.value,
     });
   }
+
   handleSubmit() {
     this.props.handleSubmit(this.state.input);
     this.setState({
-        input: ''
-    })
+      input: "",
+    });
   }
+
   render() {
     return (
       <div className="panel-footer">
@@ -28,9 +31,9 @@ export default class FooterChat extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Say something"
               value={this.state.input}
               onChange={this.handleChange}
+              placeholder="Say something"
             />
             <span className="input-group-btn">
               <button
