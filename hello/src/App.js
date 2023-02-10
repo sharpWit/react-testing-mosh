@@ -1,9 +1,8 @@
 import React from "react";
-import CleanChat from "./Components/CleanChat";
 
-import "./Chat.css";
+import Counter from "./Components/Counter";
 
 function App() {
-  return <CleanChat />;
+  return <Counter />;
 }
 export default App;
