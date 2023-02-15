@@ -1,8 +1,8 @@
 import React from "react";
-
-import Counter from "./Components/Counter";
+import "./Slider.css";
+import Slider from "./Components/Slider";
 
 function App() {
-  return <Counter />;
+  return <Slider />;
 }
 export default App;
