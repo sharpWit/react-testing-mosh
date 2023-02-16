@@ -3,10 +3,12 @@ import UnitState from "./UnitState";
 
 export default function UnitStates({ units, name }) {
   const states = units.map((unit, index) => (
-    <UnitState 
-    state={unit.state}
-     value={unit.value}
-      noBorder={index === units.length - 1}/>
+    <UnitState
+      key={unit.value}
+      state={unit.state}
+      value={unit.value}
+      noBorder={index === units.length - 1}
+    />
   ));
   return (
     <div
