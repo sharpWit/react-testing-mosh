@@ -1,8 +1,7 @@
 import React from "react";
-import "./SignUp.css";
-import SignUp from "./Components/SignUp";
-
+import "./Slider.css";
+import Slider from "./Components/Slider";
 function App() {
-  return <SignUp />;
+  return <Slider />;
 }
 export default App;

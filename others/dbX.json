@@ -105,28 +105,5 @@
       ],
       "img": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/wizard.png"
     }
-  ],
-
-  "restricts": [
-    {
-      "hero_id": 1,
-      "max": 659
-    },
-    {
-      "hero_id": 2,
-      "max": 311
-    },
-    {
-      "hero_id": 3,
-      "max": 247
-    },
-    {
-      "hero_id": 4,
-      "max": 908
-    },
-    {
-      "hero_id": 5,
-      "max": 148
-    }
   ]
 }

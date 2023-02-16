@@ -14,8 +14,8 @@ export default function Card({ hero }) {
       <CardItem type="clash-card__unit-description">
         {hero.description}
       </CardItem>
-      <Buy name={hero.name}/>
-      <UnitStates units={hero.units} name={hero.name}/>
+      <Buy name={hero.name} id={hero.id} />
+      <UnitStates units={hero.units} name={hero.name} />
     </div>
   );
 }
