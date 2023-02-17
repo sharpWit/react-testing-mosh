@@ -8,20 +8,37 @@ export default function App() {
   const [postId, setPostId] = useState(1);
   const [loading, setLoading] = useState(true);
 
+  function userAction(type, payLoad) {
+    switch (type) {
+      case "get-post-success":
+        setTitle(payLoad.title);
+        setLoading(false);
+        setToast({
+          type: "success",
+          message: payLoad.message,
+        });
+        break;
+      case "get-post-request":
+        setPostId(payLoad);
+        setLoading(true);
+      default:
+        break;
+    }
+  }
+
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((response) => response.json())
-      .then((psot) => {
-        setTitle(psot.title);
-        setLoading(false);
-        setToast({ type: "success", message: `Post with id ${postId} loaded` });
+      .then((post) => {
+        userAction("get-post-success", {
+          title: post.title,
+          message: `Post with id ${postId} loaded`,
+        });
       });
   }, [postId]);
   function handleLoading(e) {
-    setPostId(e.target.value);
-    setLoading(true);
+    userAction("get-post-request", e.target.value);
   }
-
   return (
     <div className="container">
       <div>
